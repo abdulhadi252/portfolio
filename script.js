@@ -1,74 +1,59 @@
-   // Skill Section Progresss Bar Script
-        let bars = document.querySelectorAll(".progress-bar");
+function toggleNav() {
+    const links = document.getElementById('navLinks');
+    const icon = document.getElementById('toggle-icon');
+    links.classList.toggle('open');
+    icon.className = links.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
+}
 
-        for (let i = 0; i < bars.length; i++) {
-            let percent = bars[i].dataset.width;
-            bars[i].style.width = percent + "%";
-        }
-        // Skill Section Progresss Bar Script end
+function closeNav() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('toggle-icon').className = 'fas fa-bars';
+}
 
-        // for project dot click to new project 
-        const dots = document.querySelectorAll(".slider-dot");
-        const projectsContainer = document.querySelector(".projects-container");
-        const totalSlides = document.querySelectorAll(".project-card").length;
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener("click", () => {
-                // move slider
-                projectsContainer.style.transform = `translateX(-${index * 100}%)`;
-
-                // active dot change
-                dots.forEach(d => d.classList.remove("active"));
-                dot.classList.add("active");
-            });
-        });
-
-        // for project dot click to new project end 
-
-        let elements = document.querySelectorAll('.animate-on-scroll');
-
-        document.onscroll = function () {
-            for (let i = 0; i < elements.length; i++) {
-                let scroll = elements[i];
-                if (scroll.getBoundingClientRect().top < 400) { // jab element screen ke andar aa jaye
-                    scroll.style.opacity = 1;
-                    scroll.style.transform = 'translateY(0)';
-                }
-            }
-        }
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+    });
+}
 
 
-        // ............................form validation.........................
-        function data() {
-            let name = document.getElementById("name").value;
-            let company = document.getElementById("company").value;
-            let email = document.getElementById("email").value;
-            let phone = document.getElementById("phone").value;
-            let ideas = document.getElementById("ideas").value;
-            let feedback = document.getElementById("feedback").value;
+    , {
+        threshold: 0.08
+    });
 
-            if (name == "" || company == "" || email == "" || phone == "" || ideas == "" || feedback == "") {
-                alert("Please Fill All Fields");
-                return false;
-            }
-            else if (!email.endsWith("@gmail.com")) {
-                alert("Please Enter a Valid Email");
-                return false;
-            }
-            else if (phone.length < 11) {
-                alert("Please Enter a Valid Number");
-                return false;
-            }
-            else if (isNaN(phone)) {
-                alert("Please Enter Only Number");
-                return false;
-            }
-            else if (!phone.startsWith("03" || "92" || "35")) {
-                alert("please number starts for 03/92/35 only for some country");
-                return false;
-            }
-            else {
-                alert("Your Form Succesfully Submited Thanksful To You ✨✨");
-                return true;
-            }
-        }
+// Navbar scroll: pill → sticky top
+window.addEventListener('scroll', function () {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const feedback = document.getElementById("feedback").value.trim();
+
+    if (!name || !email || !phone || !feedback) {
+        alert("Please fill all required fields");
+        return false;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid email address");
+        return false;
+    }
+
+    if (phone.length < 11 || isNaN(phone)) {
+        alert("Please enter a valid phone number (min 11 digits)");
+        return false;
+    }
+
+    alert("Your message has been sent successfully! ✨");
+    return true;
+}
+
