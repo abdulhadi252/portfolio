@@ -31,29 +31,3 @@ window.addEventListener('scroll', function () {
     }
 });
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-function validateForm() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const feedback = document.getElementById("feedback").value.trim();
-
-    if (!name || !email || !phone || !feedback) {
-        alert("Please fill all required fields");
-        return false;
-    }
-
-    if (!email.includes("@") || !email.includes(".")) {
-        alert("Please enter a valid email address");
-        return false;
-    }
-
-    if (phone.length < 11 || isNaN(phone)) {
-        alert("Please enter a valid phone number (min 11 digits)");
-        return false;
-    }
-
-    alert("Your message has been sent successfully! ✨");
-    return true;
-}
-
