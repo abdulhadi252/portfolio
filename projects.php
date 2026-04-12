@@ -300,7 +300,7 @@ $projects = mysqli_query($connect, "SELECT * FROM projects ORDER BY id DESC");
                 <div class="empty-icon"><i class="fas fa-briefcase"></i></div>
                 <h3>No Projects Yet</h3>
                 <p>You haven't added any projects. Start by adding your first one!</p>
-                <a href="add_project.php" class="btn-add" style="display:inline-flex;">
+                <a href="add-project.php" class="btn-add" style="display:inline-flex;">
                     <i class="fas fa-plus"></i> Add First Project
                 </a>
             </div>

@@ -5,17 +5,19 @@ include("connect.php");
 $data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM about WHERE id=1"));
 
 if (isset($_POST['update'])) {
-    $title = $_POST['title'];
-    $head2 = $_POST['head2'];
-    $para1 = $_POST['para1'];
-    $para2 = $_POST['para2'];
-    $tagline = $_POST['tagline'];
 
-    $image = $_FILES['image']['name'];
-    $tmp   = $_FILES['image']['tmp_name'];
+    $title   = mysqli_real_escape_string($connect, $_POST['title']);
+    $head2   = mysqli_real_escape_string($connect, $_POST['head2']);
+    $para1   = mysqli_real_escape_string($connect, $_POST['para1']);
+    $para2   = mysqli_real_escape_string($connect, $_POST['para2']);
+    $tagline = mysqli_real_escape_string($connect, $_POST['tagline']);
 
-    if ($image) {
+    $image = $_FILES['image']['name'] ?? '';
+    $tmp   = $_FILES['image']['tmp_name'] ?? '';
+
+    if (!empty($image)) {
         move_uploaded_file($tmp, "uploads/" . $image);
+
         $query = "UPDATE about SET 
             title='$title',
             head2='$head2',
@@ -35,8 +37,9 @@ if (isset($_POST['update'])) {
     }
 
     mysqli_query($connect, $query);
+
     $success = true;
-$data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM about WHERE id=1"));
+    $data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM about WHERE id=1"));
 }
 ?>
 <!DOCTYPE html>

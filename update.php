@@ -11,7 +11,7 @@ if(isset($_POST['update'])){
     $desc   = $_POST['description'];
     $github = $_POST['github'];
     $live   = $_POST['live'];
-    $skills = $_POST['skills'];
+    $tags = $_POST['tags'];
 
     if($_FILES['image']['name'] != ""){
         $image = $_FILES['image']['name'];
@@ -21,7 +21,7 @@ if(isset($_POST['update'])){
 
         mysqli_query($connect,"UPDATE projects SET 
         title='$title',
-        skills='$skills',
+        tags='$tags',
         description='$desc',
         image='$image',
         github_link='$github',
@@ -31,7 +31,7 @@ if(isset($_POST['update'])){
     } else {
         mysqli_query($connect,"UPDATE projects SET 
         title='$title',
-        skills='$skills',
+        tags='$tags',
         description='$desc',
         github_link='$github',
         live_link='$live'
@@ -320,12 +320,12 @@ if(isset($_POST['update'])){
                             <textarea name="description" class="form-control"><?php echo $data['description']; ?></textarea>
                         </div>
 
-                        <!-- Skills -->
+                        <!-- tags -->
                         <div class="form-group col-full">
                             <label><i class="fas fa-code"></i> Skills / Tags</label>
-                            <textarea name="skills" class="form-control"
+                            <textarea name="tags" class="form-control"
                                 style="min-height:80px"
-                                placeholder="e.g. HTML, CSS, JavaScript"><?php echo $data['skills']; ?></textarea>
+                                placeholder="e.g. HTML, CSS, JavaScript"><?php echo $data['tags']; ?></textarea>
                         </div>
 
                         <!-- GitHub -->

@@ -303,11 +303,17 @@ $current = basename($_SERVER['PHP_SELF']);
         </a>
 
         <div class="nav-label">Content</div>
+        <a href="hero.php" class="<?= $current=='hero.php' ? 'active' : '' ?>">
+            <i class="fas fa-user"></i> Hero
+        </a>
         <a href="about.php" class="<?= $current=='about.php' ? 'active' : '' ?>">
             <i class="fas fa-user"></i> About
         </a>
         <a href="skills.php" class="<?= $current=='skills.php' ? 'active' : '' ?>">
             <i class="fas fa-code"></i> Skills
+        </a>
+        <a href="stats.php" class="<?= $current=='stats.php' ? 'active' : '' ?>">
+            <i class="fas fa-briefcase"></i> Stats
         </a>
         <a href="projects.php" class="<?= $current=='projects.php' ? 'active' : '' ?>">
             <i class="fas fa-briefcase"></i> Projects
@@ -321,8 +327,8 @@ $current = basename($_SERVER['PHP_SELF']);
         <a href="profile.php" class="<?= $current=='profile.php' ? 'active' : '' ?>">
             <i class="fas fa-circle-user"></i> Profile
         </a>
-        <a href="settings.php" class="<?= $current=='settings.php' ? 'active' : '' ?>">
-            <i class="fas fa-gear"></i> Settings
+        <a href="logout.php" class="<?= $current=='logout.php' ? 'active' : '' ?>">
+            <i class="fas fa-gear"></i> logout
         </a>
 
     </nav>

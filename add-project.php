@@ -7,7 +7,6 @@ if (isset($_POST['submit'])) {
     $desc   = $_POST['description'];
     $github = $_POST['github'];
     $live   = $_POST['live'];
-    $tags = $_POST['tags'];
 
     $image = $_FILES['image']['name'];
     $tmp   = $_FILES['image']['tmp_name'];
@@ -15,8 +14,8 @@ if (isset($_POST['submit'])) {
     move_uploaded_file($tmp, "uploads/" . $image);
 
 
-    mysqli_query($connect, "INSERT INTO projects(title,description,image,github_link,live_link,tags)
-VALUES('$title','$desc','$image','$github','$live','$tags')");
+    mysqli_query($connect, "INSERT INTO projects(title,description,image,github_link,live_link)
+VALUES('$title','$desc','$image','$github','$live')");
 
     $success = true;
 }
@@ -354,12 +353,6 @@ VALUES('$title','$desc','$image','$github','$live','$tags')");
                             <label><i class="fas fa-align-left"></i> Description</label>
                             <textarea name="description" class="form-control"
                                 placeholder="Brief description of what this project does..." required></textarea>
-                        </div>
-
-                        <div class="form-group form-group-full">
-                            <label><i class="fas fa-tags"></i> Tags</label>
-                            <input type="text" name="tags" class="form-control"
-                                placeholder="HTML, CSS, JavaScript">
                         </div>
 
                         <!-- GitHub -->
