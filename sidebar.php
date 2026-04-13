@@ -315,8 +315,11 @@ $current = basename($_SERVER['PHP_SELF']);
         <a href="stats.php" class="<?= $current=='stats.php' ? 'active' : '' ?>">
             <i class="fas fa-briefcase"></i> Stats
         </a>
+        <a href="contact.php" class="<?= $current=='contact.php' ? 'active' : '' ?>">
+            <i class="fas fa-user"></i> Contact Info
+        </a>
         <a href="projects.php" class="<?= $current=='projects.php' ? 'active' : '' ?>">
-            <i class="fas fa-briefcase"></i> Projects
+            <i class="fas fa-gem"></i> Projects
         </a>
         <a href="messages.php" class="<?= $current=='messages.php' ? 'active' : '' ?>">
             <i class="fas fa-envelope"></i> Messages
@@ -326,9 +329,6 @@ $current = basename($_SERVER['PHP_SELF']);
         <div class="nav-label">Account</div>
         <a href="profile.php" class="<?= $current=='profile.php' ? 'active' : '' ?>">
             <i class="fas fa-circle-user"></i> Profile
-        </a>
-        <a href="logout.php" class="<?= $current=='logout.php' ? 'active' : '' ?>">
-            <i class="fas fa-gear"></i> logout
         </a>
 
     </nav>

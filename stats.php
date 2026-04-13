@@ -71,24 +71,26 @@ if(isset($_POST['update'])){
         .stat-input-wrap:focus-within { border-color:var(--primary); }
 
         .stat-prefix {
-            background:rgba(201,169,127,0.1); padding:0 14px;
+            background:rgba(201,169,127,0.1); padding:0 12px;
             display:flex; align-items:center; justify-content:center;
-            color:var(--primary); font-size:1rem; font-weight:700;
-            border-right:1px solid var(--border); min-width:44px;
+            color:var(--primary); font-size:0.9rem; font-weight:700;
+            border-right:1px solid var(--border); min-width:40px;
+            flex-shrink:0;
         }
 
         .stat-input {
-            flex:1; background:transparent; border:none;
-            padding:13px 16px; color:var(--text);
-            font-family:'DM Sans',sans-serif; font-size:1.1rem;
+            flex:1; min-width:0; width:0; background:transparent; border:none;
+            padding:13px 12px; color:var(--text);
+            font-family:'DM Sans',sans-serif; font-size:1rem;
             font-weight:600; outline:none;
         }
         .stat-input::placeholder { color:var(--text-muted); font-size:0.92rem; font-weight:400; }
 
         .stat-suffix {
-            padding:0 14px; display:flex; align-items:center;
-            color:var(--text-muted); font-size:0.78rem;
+            padding:0 10px; display:flex; align-items:center;
+            color:var(--text-muted); font-size:0.72rem;
             border-left:1px solid var(--border); white-space:nowrap;
+            flex-shrink:0;
         }
 
         /* Preview strip */

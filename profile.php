@@ -1,12 +1,7 @@
 <?php
 include("connect.php");
 session_start();
-if(!isset($_SESSION['admin_id'])){
-    header("Location: login.php");
-    exit();
-}
 
-// agar login nahi hai to redirect
 if(!isset($_SESSION['admin_id'])){
     header("Location: login.php");
     exit();
@@ -15,14 +10,36 @@ if(!isset($_SESSION['admin_id'])){
 $id = $_SESSION['admin_id'];
 $msg = "";
 
+// current admin data lao
+$data = mysqli_fetch_assoc(mysqli_query($connect,"SELECT * FROM admins WHERE id='$id'"));
+
 if(isset($_POST['update'])){
-    $newpass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    mysqli_query($connect,"UPDATE admins SET password='$newpass' WHERE id='$id'");
-    $msg = "Password Updated!";
+
+    $current = $_POST['current_password'];
+    $new     = $_POST['password'];
+    $confirm = $_POST['confirm_password'];
+
+    // 1️⃣ current password check
+    if(!password_verify($current, $data['password'])){
+        $msg = "❌ Current Password Incorrect!";
+    }
+
+    // 2️⃣ new = confirm check
+    else if($new !== $confirm){
+        $msg = "❌ New Passwords do not match!";
+    }
+
+    // 3️⃣ update password
+    else{
+        $newpass = password_hash($new, PASSWORD_DEFAULT);
+        mysqli_query($connect,"UPDATE admins SET password='$newpass' WHERE id='$id'");
+        $msg = "✅ Password Updated Successfully!";
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,126 +47,311 @@ if(isset($_POST['update'])){
     <?php include("sidebar.php"); ?>
     <style>
         .profile-grid {
-            display:grid; grid-template-columns:300px 1fr;
-            gap:28px; max-width:920px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 28px;
+            max-width: 920px;
         }
 
         /* LEFT info card */
         .info-card {
-            background:var(--dark); border:1px solid var(--border);
-            border-radius:16px; padding:32px 24px; text-align:center;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
         }
-        .avatar-wrap { position:relative; width:88px; margin:0 auto 18px; }
+
+        .avatar-wrap {
+            position: relative;
+            width: 88px;
+            margin: 0 auto 18px;
+        }
+
         .avatar {
-            width:88px; height:88px; border-radius:50%;
-            background:linear-gradient(135deg,var(--primary),var(--accent));
-            display:flex; align-items:center; justify-content:center;
-            font-family:'Playfair Display',serif;
-            font-size:2rem; font-weight:700; color:var(--dark);
-            border:3px solid rgba(201,169,127,0.3);
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            border: 3px solid rgba(201, 169, 127, 0.3);
         }
+
         .avatar-dot {
-            width:14px; height:14px; background:#5cb85c;
-            border:2px solid var(--dark); border-radius:50%;
-            position:absolute; bottom:4px; right:2px;
+            width: 14px;
+            height: 14px;
+            background: #5cb85c;
+            border: 2px solid var(--dark);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 4px;
+            right: 2px;
         }
-        .info-card h3 { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--text); margin-bottom:6px; }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
         .role-badge {
-            display:inline-block; background:rgba(201,169,127,0.12);
-            border:1px solid var(--border); color:var(--primary);
-            font-size:0.72rem; font-weight:700; padding:4px 14px;
-            border-radius:20px; letter-spacing:0.6px; text-transform:uppercase; margin-bottom:24px;
+            display: inline-block;
+            background: rgba(201, 169, 127, 0.12);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
         }
-        .info-divider { height:1px; background:var(--border); margin:0 0 18px; }
+
+        .info-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 0 0 18px;
+        }
+
         .info-row {
-            display:flex; align-items:center; gap:12px; padding:10px 0;
-            border-bottom:1px solid rgba(201,169,127,0.07); text-align:left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(201, 169, 127, 0.07);
+            text-align: left;
         }
-        .info-row:last-child { border-bottom:none; }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
         .row-icon {
-            width:32px; height:32px; background:rgba(201,169,127,0.1);
-            border-radius:8px; display:flex; align-items:center;
-            justify-content:center; color:var(--primary); font-size:0.82rem; flex-shrink:0;
+            width: 32px;
+            height: 32px;
+            background: rgba(201, 169, 127, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.82rem;
+            flex-shrink: 0;
         }
-        .info-row div p    { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:2px; }
-        .info-row div span { font-size:0.88rem; color:var(--text); font-weight:500; }
+
+        .info-row div p {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .info-row div span {
+            font-size: 0.88rem;
+            color: var(--text);
+            font-weight: 500;
+        }
 
         /* RIGHT password card */
         .pass-card {
-            background:var(--dark); border:1px solid var(--border);
-            border-radius:16px; padding:32px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
         }
-        .card-header {
-            display:flex; align-items:center; gap:14px;
-            margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--border);
-        }
-        .card-header-icon {
-            width:44px; height:44px; background:rgba(201,169,127,0.12);
-            border:1px solid var(--border); border-radius:12px;
-            display:flex; align-items:center; justify-content:center;
-            color:var(--primary); font-size:1.1rem;
-        }
-        .card-header h2 { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--text); }
-        .card-header p  { font-size:0.82rem; color:var(--text-muted); margin-top:2px; }
 
-        .form-group { margin-bottom:20px; }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-header-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(201, 169, 127, 0.12);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .card-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+
+        .card-header p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
         .form-group label {
-            display:block; font-size:0.8rem; font-weight:600;
-            color:var(--primary); letter-spacing:0.5px;
-            text-transform:uppercase; margin-bottom:8px;
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
-        .input-wrap { position:relative; }
+
+        .input-wrap {
+            position: relative;
+        }
+
         .input-wrap i.ico {
-            position:absolute; left:14px; top:50%;
-            transform:translateY(-50%);
-            color:var(--text-muted); font-size:0.88rem; pointer-events:none;
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            pointer-events: none;
         }
+
         .eye-btn {
-            position:absolute; right:14px; top:50%;
-            transform:translateY(-50%);
-            background:none; border:none; color:var(--text-muted);
-            cursor:pointer; font-size:0.88rem; transition:color 0.2s;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.88rem;
+            transition: color 0.2s;
         }
-        .eye-btn:hover { color:var(--primary); }
+
+        .eye-btn:hover {
+            color: var(--primary);
+        }
+
         .form-control {
-            width:100%; background:var(--dark3); border:1px solid var(--border);
-            border-radius:10px; padding:12px 44px 12px 42px;
-            color:var(--text); font-family:'DM Sans',sans-serif;
-            font-size:0.92rem; outline:none;
-            transition:border-color 0.3s, background 0.3s;
+            width: 100%;
+            background: var(--dark3);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 44px 12px 42px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.3s, background 0.3s;
         }
-        .form-control:focus { border-color:var(--primary); background:rgba(201,169,127,0.04); }
-        .form-control::placeholder { color:var(--text-muted); }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background: rgba(201, 169, 127, 0.04);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
 
         .alert-success {
-            display:flex; align-items:center; gap:10px;
-            background:rgba(100,200,120,0.1); border:1px solid rgba(100,200,120,0.25);
-            border-radius:10px; padding:13px 16px; margin-bottom:22px;
-            color:#7dd89a; font-size:0.88rem; font-weight:500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(100, 200, 120, 0.1);
+            border: 1px solid rgba(100, 200, 120, 0.25);
+            border-radius: 10px;
+            padding: 13px 16px;
+            margin-bottom: 22px;
+            color: #7dd89a;
+            font-size: 0.88rem;
+            font-weight: 500;
         }
 
-        .match-msg { font-size:0.78rem; margin-top:6px; min-height:18px; }
+        .match-msg {
+            font-size: 0.78rem;
+            margin-top: 6px;
+            min-height: 18px;
+        }
 
-        .btn-row { display:flex; gap:12px; margin-top:8px; }
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
         .btn-save {
-            padding:13px 32px; background:var(--primary); color:var(--dark);
-            border:none; border-radius:10px; font-weight:700; font-size:0.92rem;
-            cursor:pointer; font-family:'DM Sans',sans-serif;
-            display:flex; align-items:center; gap:8px; transition:all 0.3s;
+            padding: 13px 32px;
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
         }
-        .btn-save:hover { background:var(--accent); transform:translateY(-1px); box-shadow:0 8px 20px rgba(201,169,127,0.2); }
-        .btn-back {
-            padding:13px 24px; background:transparent; color:var(--text-muted);
-            border:1px solid var(--border); border-radius:10px;
-            font-weight:500; font-size:0.92rem; text-decoration:none;
-            display:flex; align-items:center; gap:8px; transition:all 0.3s;
-        }
-        .btn-back:hover { border-color:var(--primary); color:var(--primary); }
 
-        @media(max-width:860px){ .profile-grid { grid-template-columns:1fr; } }
-        @media(max-width:480px){ .btn-row { flex-direction:column; } }
+        .btn-save:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(201, 169, 127, 0.2);
+        }
+
+        .btn-back {
+            padding: 13px 24px;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.92rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        @media(max-width:860px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:480px) {
+            .btn-row {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="main-content">
         <div class="topbar">
@@ -158,7 +360,9 @@ if(isset($_POST['update'])){
                 <span class="page-title">Profile</span>
             </div>
             <div class="topbar-right">
-                <div class="admin-chip"><div class="admin-avatar">A</div><span>Admin</span></div>
+                <div class="admin-chip">
+                    <div class="admin-avatar">A</div><span>Admin</span>
+                </div>
             </div>
         </div>
 
@@ -176,19 +380,27 @@ if(isset($_POST['update'])){
                     <div class="info-divider"></div>
                     <div class="info-row">
                         <div class="row-icon"><i class="fas fa-shield-halved"></i></div>
-                        <div><p>Status</p><span style="color:#7dd89a;">● Active</span></div>
+                        <div>
+                            <p>Status</p><span style="color:#7dd89a;">● Active</span>
+                        </div>
                     </div>
                     <div class="info-row">
                         <div class="row-icon"><i class="fas fa-id-badge"></i></div>
-                        <div><p>Admin ID</p><span>#<?php echo str_pad($id, 4, '0', STR_PAD_LEFT); ?></span></div>
+                        <div>
+                            <p>Admin ID</p><span>#<?php echo str_pad($id, 4, '0', STR_PAD_LEFT); ?></span>
+                        </div>
                     </div>
                     <div class="info-row">
                         <div class="row-icon"><i class="fas fa-lock"></i></div>
-                        <div><p>Password</p><span>Encrypted</span></div>
+                        <div>
+                            <p>Password</p><span>Encrypted</span>
+                        </div>
                     </div>
                     <div class="info-row">
                         <div class="row-icon"><i class="fas fa-calendar"></i></div>
-                        <div><p>Access Level</p><span>Full Access</span></div>
+                        <div>
+                            <p>Access Level</p><span>Full Access</span>
+                        </div>
                     </div>
                 </div>
 
@@ -202,13 +414,23 @@ if(isset($_POST['update'])){
                         </div>
                     </div>
 
-                    <?php if($msg): ?>
-                    <div class="alert-success">
-                        <i class="fas fa-circle-check"></i> <?php echo $msg; ?>
-                    </div>
+                    <?php if ($msg): ?>
+                        <div class="alert-success">
+                            <i class="fas fa-circle-check"></i> <?php echo $msg; ?>
+                        </div>
                     <?php endif; ?>
 
                     <form method="POST">
+
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <div class="input-wrap">
+                                <i class="fas fa-lock ico"></i>
+                                <input type="password" name="current_password"
+                                    class="form-control" placeholder="Enter current password">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label>New Password</label>
                             <div class="input-wrap">
@@ -225,7 +447,7 @@ if(isset($_POST['update'])){
                             <label>Confirm Password</label>
                             <div class="input-wrap">
                                 <i class="fas fa-lock ico"></i>
-                                <input type="password" id="confirmField"
+                                <input type="password" name="confirm_password" id="confirmField"
                                     class="form-control" placeholder="Re-enter new password"
                                     oninput="checkMatch()">
                                 <button type="button" class="eye-btn" onclick="togglePass('confirmField',this)">
@@ -257,14 +479,19 @@ if(isset($_POST['update'])){
             f.type = f.type === 'password' ? 'text' : 'password';
             icon.className = f.type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
         }
-        function checkMatch(){
-            var np  = document.getElementById('passField').value;
-            var cp  = document.getElementById('confirmField').value;
+
+        function checkMatch() {
+            var np = document.getElementById('passField').value;
+            var cp = document.getElementById('confirmField').value;
             var msg = document.getElementById('matchMsg');
-            if(!cp){ msg.textContent=''; return; }
+            if (!cp) {
+                msg.textContent = '';
+                return;
+            }
             msg.textContent = np === cp ? '✓ Passwords match' : '✗ Passwords do not match';
             msg.style.color = np === cp ? '#7dd89a' : '#e07070';
         }
     </script>
 </body>
+
 </html>

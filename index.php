@@ -6,6 +6,7 @@ $about    = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM about WHERE
 $skills   = mysqli_query($connect, "SELECT * FROM skills");
 $stats    = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM stats WHERE id=1"));
 $projects = mysqli_query($connect, "SELECT * FROM projects");
+$contact = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM contact_info WHERE id=1"));
 
 if (isset($_POST['send'])) {
     $name     = $_POST['name'];
@@ -219,15 +220,15 @@ if (isset($_POST['send'])) {
                 <p class="contact-sub">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
                 <div class="contact-detail">
                     <i class="fas fa-envelope"></i>
-                    <div><h4>Email</h4><p>abdulhadi@gmail.com</p></div>
+                    <div><h4>Email</h4><p><?php echo $contact['email']; ?></p></div>
                 </div>
                 <div class="contact-detail">
                     <i class="fas fa-phone"></i>
-                    <div><h4>Phone</h4><p>03172045430 / 03132194854</p></div>
+                    <div><h4>Phone</h4><p><?php echo $contact['phone']; ?></p></div>
                 </div>
                 <div class="contact-detail">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div><h4>Location</h4><p>Karachi, Pakistan</p></div>
+                    <div><h4>Location</h4><p><?php echo $contact['location']; ?></p></div>
                 </div>
             </div>
             <div class="contact-form">
@@ -267,7 +268,7 @@ if (isset($_POST['send'])) {
     <div class="ending-line"></div>
     <div class="ending-content">
         <p class="ending-tagline">Built with passion &amp; clean code</p>
-        <p class="ending-copy">&copy; 2026 Abdul Hadi &mdash; Frontend Developer &bull; Karachi, Pakistan</p>
+        <p class="ending-copy">&copy; 2026 Abdul Hadi &mdash; Website Developer &bull; Karachi, Pakistan</p>
     </div>
 </div>
 
