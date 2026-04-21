@@ -1,4 +1,3 @@
-
 /* ── Custom Cursor ── */
 (function(){
     var dot=document.querySelector('.cursor-dot');
@@ -163,11 +162,13 @@ document.addEventListener('DOMContentLoaded',function(){
         });
     });
 
-    /* ── Hero parallax ── */
-    var hb=document.querySelector('.hero-bg');
-    if(hb){
+    /* ── Hero video parallax (scroll pe thoda slow karna) ── */
+    var hv=document.querySelector('.hero-bg');
+    if(hv){
         window.addEventListener('scroll',function(){
-            if(window.scrollY<window.innerHeight)hb.style.transform='translateY('+(window.scrollY*.22)+'px) scale(1.1)';
+            if(window.scrollY<window.innerHeight){
+                hv.style.transform='translateY('+(window.scrollY*.15)+'px) scale(1.04)';
+            }
         },{passive:true});
     }
 
