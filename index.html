@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdul Hadi | Frontend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- CURSOR -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+    <!-- CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAVBAR -->
-<nav id="mainNav">
-    <div class="nav-inner">
-        <a href="#home" class="nav-logo" style="
+    <!-- NAVBAR -->
+    <nav id="mainNav">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo" style="
             text-decoration: none;
             display: flex;
             flex-direction: column;
@@ -27,7 +31,7 @@
             line-height: 1;
             gap: 4px;
         ">
-            <span style="
+                <span style="
                 font-family: Georgia, 'Times New Roman', serif;
                 font-size: 1.75rem;
                 font-style: italic;
@@ -38,13 +42,13 @@
                 background-clip: text;
                 letter-spacing: -2px;
             ">AH</span>
-            <span style="
+                <span style="
                 display: block;
                 width: 100%;
                 height: 0.5px;
                 background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
             "></span>
-            <span style="
+                <span style="
                 font-family: 'Outfit', sans-serif;
                 font-size: 0.42rem;
                 letter-spacing: 4px;
@@ -52,338 +56,403 @@
                 text-transform: uppercase;
                 font-weight: 400;
             ">Abdul Hadi</span>
-        </a>
-        <button class="nav-toggle" onclick="toggleNav()">
-            <i class="fas fa-bars" id="toggle-icon"></i>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home"     onclick="closeNav()">Home</a></li>
-            <li><a href="#about"    onclick="closeNav()">About</a></li>
-            <li><a href="#projects" onclick="closeNav()">Projects</a></li>
-            <li><a href="#contact"  onclick="closeNav()">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-    <!-- VIDEO BACKGROUND -->
-    <video class="hero-bg" autoplay muted loop playsinline>
-        <source src="hero-bg.mp4" type="video/mp4">
-        <source src="hero-bg.mp4" type="video/mp4">
-    </video>
-
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-
-        <div class="hero-cards">
-            <div class="hero-float-card">
-                <div class="float-dot"></div>
-                <div class="float-card-icon"><i class="fas fa-code"></i></div>
-                <h4>Clean Code</h4>
-                <p>Structured, readable &amp; maintainable frontend development</p>
-            </div>
-            <div class="hero-float-card">
-                <div class="float-dot"></div>
-                <div class="float-card-icon"><i class="fas fa-mobile-screen"></i></div>
-                <h4>Responsive</h4>
-                <p>Pixel-perfect on every screen size &amp; device</p>
-            </div>
+            </a>
+            <button class="nav-toggle" onclick="toggleNav()">
+                <i class="fas fa-bars" id="toggle-icon"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeNav()">Home</a></li>
+                <li><a href="#about" onclick="closeNav()">About</a></li>
+                <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+                <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="hero-content">
-            <h1>Abdul Hadi</h1>
-            <div class="hero-divider">
-                <span></span>
-                <em>Based in Karachi</em>
-                <span></span>
-            </div>
-            <h2>Website Developer</h2>
-            <p>I build modern, responsive websites using both frontend and backend technologies. From clean UI designs to powerful functionality, I create complete web experiences that work seamlessly across all devices.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-            </div>
-        </div>
-    </div>
-    <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-    </div>
-</section>
+    <!-- HERO -->
+    <section class="hero" id="home">
 
-<!-- ABOUT -->
-<section id="about" class="animate-on-scroll">
-    <div class="container">
-        <div class="section-title">
-            <div class="section-label">About Me</div>
-            <h2>My <em>Story</em></h2>
-        </div>
-        <div class="about-grid">
-            <div class="about-img-col">
-                <div class="about-img-wrap">
-                    <div class="about-img-inner">
-                        <img src="uploads/ChatGPT Image Feb 7, 2026, 04_28_33 PM.png" alt="Abdul Hadi">
-                    </div>
-                    <div class="about-badge">
-                        <div class="badge-num">1+</div>
-                        <div class="badge-label">Years Exp.</div>
-                    </div>
+        <!-- VIDEO BACKGROUND -->
+        <video class="hero-bg" autoplay muted loop playsinline>
+            <source src="hero-bg.mp4" type="video/mp4">
+            <source src="hero-bg.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+
+            <div class="hero-cards">
+                <div class="hero-float-card">
+                    <div class="float-dot"></div>
+                    <div class="float-card-icon"><i class="fas fa-code"></i></div>
+                    <h4>Clean Code</h4>
+                    <p>Structured, readable &amp; maintainable frontend development</p>
                 </div>
-                <div class="about-social">
-                    <a href="https://www.linkedin.com/in/abdul-hadidev/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/abdulhadi252" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:abdulhadi2505b@aptechsite.net" title="Email"><i class="fas fa-envelope"></i></a>
+                <div class="hero-float-card">
+                    <div class="float-dot"></div>
+                    <div class="float-card-icon"><i class="fas fa-mobile-screen"></i></div>
+                    <h4>Responsive</h4>
+                    <p>Pixel-perfect on every screen size &amp; device</p>
                 </div>
             </div>
-            <div class="about-text">
-                <p>I am a passionate Frontend Developer who loves turning ideas into clean, responsive, and user-friendly websites. I focus on writing structured code and building modern UI designs that provide a smooth user experience. I'm always learning new technologies and improving my skills by building real-world projects.</p>
-                <p>I enjoy creating visually appealing and interactive web interfaces that make user experience seamless and engaging. I constantly explore new tools and techniques to build better and smarter digital solutions.</p>
-                <div class="tagline">
-                    <p>"I don't just write code — I bring my dreams to life on the screen, and every project is a step closer to the future I imagine."</p>
+
+            <div class="hero-content">
+                <h1>Abdul Hadi</h1>
+                <div class="hero-divider">
+                    <span></span>
+                    <em>Based in Karachi</em>
+                    <span></span>
                 </div>
-                <div class="skill-names">
-                    <span class="skill-name-tag"><span>HTML</span></span>
-                    <span class="skill-name-tag"><span>CSS</span></span>
-                    <span class="skill-name-tag"><span>JavaScript</span></span>
-                    <span class="skill-name-tag"><span>PHP</span></span>
-                    <span class="skill-name-tag"><span>MySQL</span></span>
-                    <span class="skill-name-tag"><span>Laravel</span></span>
-                    <span class="skill-name-tag"><span>VS Code</span></span>
-                    <span class="skill-name-tag"><span>Git &amp; GitHub</span></span>
+                <h2>Website Developer</h2>
+                <p>I build modern, responsive websites using both frontend and backend technologies. From clean UI
+                    designs to powerful functionality, I create complete web experiences that work seamlessly across all
+                    devices.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-ghost">Get In Touch</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="animate-on-scroll">
-    <div class="container">
-        <div class="section-title">
-            <div class="section-label">Portfolio</div>
-            <h2>My <em>Work</em></h2>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
-        <div class="projects-grid">
+    </section>
 
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/jenny.png" alt="E-Commerce Dashboard">
-                    <div class="project-overlay">
-                        <a href="https://jenny-store1.lovestoblog.com/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/abdulhadi252/jenny"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                    <div class="project-number">01</div>
-                </div>
-                <div class="project-info">
-                    <h3>Cosmetics and Jwellery Store</h3>
-                    <p>A full-featured admin panel for online stores with real-time analytics, order management, and inventory tracking built with HTML, CSS &amp; PHP.</p>
-                    <span class="project-tag">HTML . PHP . MySQL </span>
-                </div>
+    <!-- ABOUT -->
+    <section id="about" class="animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-label">About Me</div>
+                <h2>My <em>Story</em></h2>
             </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/galleria.png" alt="Portfolio Website">
-                    <div class="project-overlay">
-                        <a href="https://abdulhadi252.github.io/Galleria-Website/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/abdulhadi252/Galleria-Website"><i class="fab fa-github"></i> GitHub</a>
+            <div class="about-grid">
+                <div class="about-img-col">
+                    <div class="about-img-wrap">
+                        <div class="about-img-inner">
+                            <img src="uploads/ChatGPT Image Feb 7, 2026, 04_28_33 PM.png" alt="Abdul Hadi">
+                        </div>
+                        <div class="about-badge">
+                            <div class="badge-num">1+</div>
+                            <div class="badge-label">Years Exp.</div>
+                        </div>
                     </div>
-                    <div class="project-number">02</div>
-                </div>
-                <div class="project-info">
-                    <h3>Aesthetic Painting Web</h3>
-                    <p>A fully responsive painting gallery website showcasing artwork with a clean and modern design. Built for smooth browsing across devices with intuitive navigation.</p>
-                    <span class="project-tag">HTML · CSS · JS</span>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/spotify.png" alt="Restaurant Website">
-                    <div class="project-overlay">
-                        <a href="https://abdulhadi252.github.io/Spotify-Clone/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/abdulhadi252/Spotify-Clone"><i class="fab fa-github"></i> GitHub</a>
+                    <div class="about-social">
+                        <a href="https://www.linkedin.com/in/abdul-hadidev/" target="_blank" title="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/abdulhadi252" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="mailto:abdulhadi2505b@aptechsite.net" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
-                    <div class="project-number">03</div>
                 </div>
-                <div class="project-info">
-                    <h3>Aesthetic Clone</h3>
-                    <p>Clone inspired music player UI with modern, responsive design emulating Spotify's look and feel. Built using HTML, CSS, and JavaScript for interactive song playback interface</p>
-                    <span class="project-tag">HTML · CSS · JS</span>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/movie.png" alt="Task Manager App">
-                    <div class="project-overlay">
-                        <a href="https://movies-guidence-app.netlify.app/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                <div class="about-text">
+                    <p>I am a passionate Frontend Developer who loves turning ideas into clean, responsive, and
+                        user-friendly websites. I focus on writing structured code and building modern UI designs that
+                        provide a smooth user experience. I'm always learning new technologies and improving my skills
+                        by building real-world projects.</p>
+                    <p>I enjoy creating visually appealing and interactive web interfaces that make user experience
+                        seamless and engaging. I constantly explore new tools and techniques to build better and smarter
+                        digital solutions.</p>
+                    <div class="tagline">
+                        <p>"I don't just write code — I bring my dreams to life on the screen, and every project is a
+                            step closer to the future I imagine."</p>
                     </div>
-                    <div class="project-number">04</div>
-                </div>
-                <div class="project-info">
-                    <h3>Movie Guidence App</h3>
-                    <p>A web app to search and view movie details using the OMDb API with dynamic poster, rating, genres, and plot information.</p>
-                    <span class="project-tag">HTML · CSS . JS · (OMDB)API</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="projects-grid">
-
-            <!-- Project 5 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/text-to-voice.png" alt="Task Manager App">
-                    <div class="project-overlay">
-                        <a href="https://abdulhadi252.github.io/voice-convertor/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/abdulhadi252/voice-convertor"><i class="fab fa-github"></i> GitHub</a>
+                    <div class="skill-names">
+                        <span class="skill-name-tag"><span>HTML</span></span>
+                        <span class="skill-name-tag"><span>CSS</span></span>
+                        <span class="skill-name-tag"><span>JavaScript</span></span>
+                        <span class="skill-name-tag"><span>PHP</span></span>
+                        <span class="skill-name-tag"><span>MySQL</span></span>
+                        <span class="skill-name-tag"><span>Laravel</span></span>
+                        <span class="skill-name-tag"><span>VS Code</span></span>
+                        <span class="skill-name-tag"><span>Git &amp; GitHub</span></span>
                     </div>
-                    <div class="project-number">05</div>
-                </div>
-                <div class="project-info">
-                    <h3>Text to voice Convertor</h3>
-                    <p>A simple and responsive web app that converts text into speech with a clean and user-friendly interface.</p>
-                    <span class="project-tag">HTML · CSS . JS </span>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/stop-watch.png" alt="Task Manager App">
-                    <div class="project-overlay">
-                        <a href="https://abdulhadi252.github.io/stop-watch/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/abdulhadi252/stop-watch"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                    <div class="project-number">06</div>
-                </div>
-                <div class="project-info">
-                    <h3>Stop Watch</h3>
-                    <p>A simple and responsive web-based stopwatch app with start, stop, and reset functionality for time tracking.</p>
-                    <span class="project-tag">HTML · CSS . JS</span>
-                </div>
-            </div>
-
-            <!-- Project 7 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="uploads/calculator.png" alt="Task Manager App">
-                    <div class="project-overlay">
-                        <a href="https://abdulhadi252.github.io/Calculator/"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/abdulhadi252/Calculator"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                    <div class="project-number">07</div>
-                </div>
-                <div class="project-info">
-                    <h3>Calculator</h3>
-                    <p>A responsive web-based calculator with a clean design, supporting basic arithmetic operations for quick and easy calculations.</p>
-                    <span class="project-tag">HTML · CSS . JS</span>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
-
-
-
-<!-- STATS -->
-<section class="stats-section animate-on-scroll">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>20+</h3>
-                <p>Projects Completed</p>
+    <!-- PROJECTS -->
+    <section id="projects" class="animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-label">Portfolio</div>
+                <h2>My <em>Work</em></h2>
             </div>
-            <div class="stat-item">
-                <h3>30+</h3>
-                <p>Small Projects</p>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/jenny.png" alt="E-Commerce Dashboard">
+                        <div class="project-overlay">
+                            <a href="https://jenny-store1.lovestoblog.com/"><i class="fas fa-external-link-alt"></i>
+                                Live</a>
+                            <a href="https://github.com/abdulhadi252/jenny"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        <div class="project-number">01</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cosmetics and Jwellery Store</h3>
+                        <p>A full-featured admin panel for online stores with real-time analytics, order management, and
+                            inventory tracking built with HTML, CSS &amp; PHP.</p>
+                        <span class="project-tag">HTML . PHP . MySQL </span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/healthcare.png" alt="E-Commerce Dashboard">
+                        <div class="project-overlay">
+                            <a href="https://health-care1.lovestoblog.com/"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/health-care"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        <div class="project-number">02</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Health Care Management System</h3>
+                        <p>A full-stack web application built with PHP & MySQL that allows
+                            patients to book doctor appointments online. Features include
+                            patient & doctor dashboards, admin panel, appointment scheduling,
+                            disease info, and email notifications via PHPMailer.</p>
+                        <span class="project-tag">HTML . PHP . MySQL </span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/galleria.png" alt="Portfolio Website">
+                        <div class="project-overlay">
+                            <a href="https://abdulhadi252.github.io/Galleria-Website/"><i
+                                    class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/Galleria-Website"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                        <div class="project-number">03</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Aesthetic Painting Web</h3>
+                        <p>A fully responsive painting gallery website showcasing artwork with a clean and modern
+                            design. Built for smooth browsing across devices with intuitive navigation.</p>
+                        <span class="project-tag">HTML · CSS · JS</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/spotify.png" alt="Restaurant Website">
+                        <div class="project-overlay">
+                            <a href="https://abdulhadi252.github.io/Spotify-Clone/"><i
+                                    class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/Spotify-Clone"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                        <div class="project-number">04</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Aesthetic Clone</h3>
+                        <p>Clone inspired music player UI with modern, responsive design emulating Spotify's look and
+                            feel. Built using HTML, CSS, and JavaScript for interactive song playback interface</p>
+                        <span class="project-tag">HTML · CSS · JS</span>
+                    </div>
+                </div>
+
             </div>
-            <div class="stat-item">
-                <h3>1+</h3>
-                <p>Years Experience</p>
+
+            <div class="projects-grid">
+
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/movie.png" alt="Task Manager App">
+                        <div class="project-overlay">
+                            <a href="https://movies-guidence-app.netlify.app/"><i class="fas fa-external-link-alt"></i>
+                                Live</a>
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        <div class="project-number">05</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Movie Guidence App</h3>
+                        <p>A web app to search and view movie details using the OMDb API with dynamic poster, rating,
+                            genres, and plot information.</p>
+                        <span class="project-tag">HTML · CSS . JS · (OMDB)API</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/text-to-voice.png" alt="Task Manager App">
+                        <div class="project-overlay">
+                            <a href="https://abdulhadi252.github.io/voice-convertor/"><i
+                                    class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/voice-convertor"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                        <div class="project-number">06</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Text to voice Convertor</h3>
+                        <p>A simple and responsive web app that converts text into speech with a clean and user-friendly
+                            interface.</p>
+                        <span class="project-tag">HTML · CSS . JS </span>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/stop-watch.png" alt="Task Manager App">
+                        <div class="project-overlay">
+                            <a href="https://abdulhadi252.github.io/stop-watch/"><i
+                                    class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/stop-watch"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                        <div class="project-number">07</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Stop Watch</h3>
+                        <p>A simple and responsive web-based stopwatch app with start, stop, and reset functionality for
+                            time tracking.</p>
+                        <span class="project-tag">HTML · CSS . JS</span>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="uploads/calculator.png" alt="Task Manager App">
+                        <div class="project-overlay">
+                            <a href="https://abdulhadi252.github.io/Calculator/"><i
+                                    class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/Calculator"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                        <div class="project-number">08</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Calculator</h3>
+                        <p>A responsive web-based calculator with a clean design, supporting basic arithmetic operations
+                            for quick and easy calculations.</p>
+                        <span class="project-tag">HTML · CSS . JS</span>
+                    </div>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3>6+</h3>
-                <p>Seminars Attended</p>
+
+        </div>
+    </section>
+
+
+
+    <!-- STATS -->
+    <section class="stats-section animate-on-scroll">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>Small Projects</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>6+</h3>
+                    <p>Seminars Attended</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- CONTACT -->
-<section id="contact" class="animate-on-scroll">
-    <div class="container">
-        <div class="section-title">
-            <div class="section-label">Contact</div>
-            <h2>Get In <em>Touch</em></h2>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Let's <span>Work</span><br>Together</h3>
-                <p class="contact-sub">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
-                <div class="contact-detail">
-                    <i class="fas fa-envelope"></i>
-                    <div><h4>Email</h4><p>abdulhadi@gmail.com</p></div>
-                </div>
-                <div class="contact-detail">
-                    <i class="fas fa-phone"></i>
-                    <div><h4>Phone</h4><p>+92 300 1234567</p></div>
-                </div>
-                <div class="contact-detail">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div><h4>Location</h4><p>Karachi, Pakistan</p></div>
-                </div>
+    <!-- CONTACT -->
+    <section id="contact" class="animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-label">Contact</div>
+                <h2>Get In <em>Touch</em></h2>
             </div>
-            <div class="contact-form">
-                <div class="contact-form-wrap">
-                    <form method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your name" autocomplete="off">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's <span>Work</span><br>Together</h3>
+                    <p class="contact-sub">Have a project in mind or just want to say hello? I'd love to hear from you.
+                    </p>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>abdulhadi@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+92 300 1234567</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="contact-form-wrap">
+                        <form method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" class="form-control" name="name" id="name"
+                                        placeholder="Your name" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="your@email.com" autocomplete="off">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="your@email.com" autocomplete="off">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" class="form-control" name="phone" id="phone"
+                                    placeholder="+92 xxx xxxxxxx" autocomplete="off">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" class="form-control" name="phone" id="phone" placeholder="+92 xxx xxxxxxx" autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                            <label for="feedback">Message</label>
-                            <textarea class="form-control" name="feedback" id="feedback" placeholder="Tell me about your project..."></textarea>
-                        </div>
-                        <div class="form-btns">
-                            <button type="submit" name="send" id="formsend"><span>Send Message</span></button>
-                            <button type="reset" id="formreset">Clear</button>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <label for="feedback">Message</label>
+                                <textarea class="form-control" name="feedback" id="feedback"
+                                    placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <div class="form-btns">
+                                <button type="submit" name="send" id="formsend"><span>Send Message</span></button>
+                                <button type="reset" id="formreset">Clear</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<div class="site-ending">
-    <div class="ending-content">
-        <p class="ending-tagline">Built with passion &amp; clean code</p>
-        <p class="ending-copy">&copy; 2026 Abdul Hadi &mdash; Frontend Developer &bull; Karachi, Pakistan</p>
+    <!-- FOOTER -->
+    <div class="site-ending">
+        <div class="ending-content">
+            <p class="ending-tagline">Built with passion &amp; clean code</p>
+            <p class="ending-copy">&copy; 2026 Abdul Hadi &mdash; Frontend Developer &bull; Karachi, Pakistan</p>
+        </div>
     </div>
-</div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
