@@ -30,9 +30,6 @@ function closeNav(){
     document.getElementById('navLinks').classList.remove('open');
     document.getElementById('toggle-icon').className='fas fa-bars';
 }
-window.addEventListener('scroll',function(){
-    document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>80);
-},{passive:true});
 
 document.addEventListener('DOMContentLoaded',function(){
 
@@ -162,7 +159,7 @@ document.addEventListener('DOMContentLoaded',function(){
         });
     });
 
-    /* ── Hero video parallax (scroll pe thoda slow karna) ── */
+    /* ── Hero video parallax ── */
     var hv=document.querySelector('.hero-bg');
     if(hv){
         window.addEventListener('scroll',function(){
