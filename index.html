@@ -23,39 +23,10 @@
     <!-- NAVBAR -->
     <nav id="mainNav">
         <div class="nav-inner">
-            <a href="#home" class="nav-logo" style="
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 1;
-            gap: 4px;
-        ">
-                <span style="
-                font-family: Georgia, 'Times New Roman', serif;
-                font-size: 1.75rem;
-                font-style: italic;
-                font-weight: 700;
-                background: linear-gradient(135deg, #c9a97f, #d4af37, #c9a97f);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                letter-spacing: -2px;
-            ">AH</span>
-                <span style="
-                display: block;
-                width: 100%;
-                height: 0.5px;
-                background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
-            "></span>
-                <span style="
-                font-family: 'Outfit', sans-serif;
-                font-size: 0.42rem;
-                letter-spacing: 4px;
-                color: rgba(201,169,127,0.55);
-                text-transform: uppercase;
-                font-weight: 400;
-            ">Abdul Hadi</span>
+            <a href="#home" class="nav-logo">
+                <span class="logo-initials">AH</span>
+                <span class="logo-divider"></span>
+                <span class="logo-name">Abdul Hadi</span>
             </a>
             <button class="nav-toggle" onclick="toggleNav()">
                 <i class="fas fa-bars" id="toggle-icon"></i>
@@ -71,16 +42,11 @@
 
     <!-- HERO -->
     <section class="hero" id="home">
-
-        <!-- VIDEO BACKGROUND -->
         <video class="hero-bg" autoplay muted loop playsinline>
             <source src="hero-bg.mp4" type="video/mp4">
-            <source src="hero-bg.mp4" type="video/mp4">
         </video>
-
         <div class="hero-overlay"></div>
         <div class="hero-inner">
-
             <div class="hero-cards">
                 <div class="hero-float-card">
                     <div class="float-dot"></div>
@@ -95,7 +61,6 @@
                     <p>Pixel-perfect on every screen size &amp; device</p>
                 </div>
             </div>
-
             <div class="hero-content">
                 <h1>Abdul Hadi</h1>
                 <div class="hero-divider">
@@ -138,10 +103,8 @@
                         </div>
                     </div>
                     <div class="about-social">
-                        <a href="https://www.linkedin.com/in/abdul-hadidev/" target="_blank" title="LinkedIn"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/abdulhadi252" target="_blank" title="GitHub"><i
-                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/abdul-hadidev/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/abdulhadi252" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="mailto:abdulhadi2505b@aptechsite.net" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -184,56 +147,48 @@
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/jenny.png" alt="E-Commerce Dashboard">
+                        <img src="uploads/jenny.png" alt="Cosmetics Store">
                         <div class="project-overlay">
-                            <a href="https://jenny-store1.lovestoblog.com/"><i class="fas fa-external-link-alt"></i>
-                                Live</a>
+                            <a href="https://jenny-store1.lovestoblog.com/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                         <div class="project-number">01</div>
                     </div>
                     <div class="project-info">
                         <h3>Cosmetics and Jwellery Store</h3>
-                        <p>A full-featured admin panel for online stores with real-time analytics, order management, and
-                            inventory tracking built with HTML, CSS &amp; PHP.</p>
-                        <span class="project-tag">HTML . PHP . MySQL </span>
+                        <p>A full-featured admin panel for online stores with real-time analytics, order management, and inventory tracking built with HTML, CSS &amp; PHP.</p>
+                        <span class="project-tag">HTML . PHP . MySQL</span>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/healthcare.png" alt="E-Commerce Dashboard">
+                        <img src="uploads/healthcare.png" alt="Healthcare">
                         <div class="project-overlay">
-                            <a href="https://health-care1.lovestoblog.com/"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://health-care1.lovestoblog.com/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                         <div class="project-number">02</div>
                     </div>
                     <div class="project-info">
                         <h3>Health Care Management System</h3>
-                        <p>A full-stack web application built with PHP & MySQL that allows
-                            patients to book doctor appointments online. Features include
-                            patient & doctor dashboards, admin panel, appointment scheduling,
-                            disease info, and email notifications via PHPMailer.</p>
-                        <span class="project-tag">HTML . PHP . MySQL </span>
+                        <p>A full-stack web application built with PHP & MySQL that allows patients to book doctor appointments online. Features include patient & doctor dashboards, admin panel, appointment scheduling, disease info, and email notifications via PHPMailer.</p>
+                        <span class="project-tag">HTML . PHP . MySQL</span>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/galleria.png" alt="Portfolio Website">
+                        <img src="uploads/galleria.png" alt="Galleria">
                         <div class="project-overlay">
-                            <a href="https://abdulhadi252.github.io/Galleria-Website/"><i
-                                    class="fas fa-external-link-alt"></i> Live</a>
-                            <a href="https://github.com/abdulhadi252/Galleria-Website"><i class="fab fa-github"></i>
-                                GitHub</a>
+                            <a href="https://abdulhadi252.github.io/Galleria-Website/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/Galleria-Website" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                         <div class="project-number">03</div>
                     </div>
                     <div class="project-info">
                         <h3>Aesthetic Painting Web</h3>
-                        <p>A fully responsive painting gallery website showcasing artwork with a clean and modern
-                            design. Built for smooth browsing across devices with intuitive navigation.</p>
+                        <p>A fully responsive painting gallery website showcasing artwork with a clean and modern design. Built for smooth browsing across devices with intuitive navigation.</p>
                         <span class="project-tag">HTML · CSS · JS</span>
                     </div>
                 </div>
@@ -241,19 +196,16 @@
                 <!-- Project 4 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/spotify.png" alt="Restaurant Website">
+                        <img src="uploads/spotify.png" alt="Spotify Clone">
                         <div class="project-overlay">
-                            <a href="https://abdulhadi252.github.io/Spotify-Clone/"><i
-                                    class="fas fa-external-link-alt"></i> Live</a>
-                            <a href="https://github.com/abdulhadi252/Spotify-Clone"><i class="fab fa-github"></i>
-                                GitHub</a>
+                            <a href="https://abdulhadi252.github.io/Spotify-Clone/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/Spotify-Clone" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                         <div class="project-number">04</div>
                     </div>
                     <div class="project-info">
                         <h3>Aesthetic Clone</h3>
-                        <p>Clone inspired music player UI with modern, responsive design emulating Spotify's look and
-                            feel. Built using HTML, CSS, and JavaScript for interactive song playback interface</p>
+                        <p>Clone inspired music player UI with modern, responsive design emulating Spotify's look and feel. Built using HTML, CSS, and JavaScript for interactive song playback interface.</p>
                         <span class="project-tag">HTML · CSS · JS</span>
                     </div>
                 </div>
@@ -262,82 +214,70 @@
 
             <div class="projects-grid">
 
-                
                 <!-- Project 5 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/movie.png" alt="Task Manager App">
+                        <img src="uploads/movie.png" alt="Movie App">
                         <div class="project-overlay">
-                            <a href="https://movies-guidence-app.netlify.app/"><i class="fas fa-external-link-alt"></i>
-                                Live</a>
+                            <a href="https://movies-guidence-app.netlify.app/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                         <div class="project-number">05</div>
                     </div>
                     <div class="project-info">
                         <h3>Movie Guidence App</h3>
-                        <p>A web app to search and view movie details using the OMDb API with dynamic poster, rating,
-                            genres, and plot information.</p>
-                        <span class="project-tag">HTML · CSS . JS · (OMDB)API</span>
+                        <p>A web app to search and view movie details using the OMDb API with dynamic poster, rating, genres, and plot information.</p>
+                        <span class="project-tag">HTML · CSS · JS · (OMDB) API</span>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/text-to-voice.png" alt="Task Manager App">
+                        <img src="uploads/text-to-voice.png" alt="Text to Voice">
                         <div class="project-overlay">
-                            <a href="https://abdulhadi252.github.io/voice-convertor/"><i
-                                    class="fas fa-external-link-alt"></i> Live</a>
-                            <a href="https://github.com/abdulhadi252/voice-convertor"><i class="fab fa-github"></i>
-                                GitHub</a>
+                            <a href="https://abdulhadi252.github.io/voice-convertor/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/voice-convertor" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                         <div class="project-number">06</div>
                     </div>
                     <div class="project-info">
-                        <h3>Text to voice Convertor</h3>
-                        <p>A simple and responsive web app that converts text into speech with a clean and user-friendly
-                            interface.</p>
-                        <span class="project-tag">HTML · CSS . JS </span>
+                        <h3>Text to Voice Convertor</h3>
+                        <p>A simple and responsive web app that converts text into speech with a clean and user-friendly interface.</p>
+                        <span class="project-tag">HTML · CSS · JS</span>
                     </div>
                 </div>
 
                 <!-- Project 7 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/stop-watch.png" alt="Task Manager App">
+                        <img src="uploads/stop-watch.png" alt="Stop Watch">
                         <div class="project-overlay">
-                            <a href="https://abdulhadi252.github.io/stop-watch/"><i
-                                    class="fas fa-external-link-alt"></i> Live</a>
-                            <a href="https://github.com/abdulhadi252/stop-watch"><i class="fab fa-github"></i>
-                                GitHub</a>
+                            <a href="https://abdulhadi252.github.io/stop-watch/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/stop-watch" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                         <div class="project-number">07</div>
                     </div>
                     <div class="project-info">
                         <h3>Stop Watch</h3>
-                        <p>A simple and responsive web-based stopwatch app with start, stop, and reset functionality for
-                            time tracking.</p>
-                        <span class="project-tag">HTML · CSS . JS</span>
+                        <p>A simple and responsive web-based stopwatch app with start, stop, and reset functionality for time tracking.</p>
+                        <span class="project-tag">HTML · CSS · JS</span>
                     </div>
                 </div>
 
                 <!-- Project 8 -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="uploads/calculator.png" alt="Task Manager App">
+                        <img src="uploads/calculator.png" alt="Calculator">
                         <div class="project-overlay">
-                            <a href="https://abdulhadi252.github.io/Calculator/"><i
-                                    class="fas fa-external-link-alt"></i> Live</a>
-                            <a href="https://github.com/abdulhadi252/Calculator"><i class="fab fa-github"></i>
-                                GitHub</a>
+                            <a href="https://abdulhadi252.github.io/Calculator/" class="btn-live"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/abdulhadi252/Calculator" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                         <div class="project-number">08</div>
                     </div>
                     <div class="project-info">
                         <h3>Calculator</h3>
-                        <p>A responsive web-based calculator with a clean design, supporting basic arithmetic operations
-                            for quick and easy calculations.</p>
-                        <span class="project-tag">HTML · CSS . JS</span>
+                        <p>A responsive web-based calculator with a clean design, supporting basic arithmetic operations for quick and easy calculations.</p>
+                        <span class="project-tag">HTML · CSS · JS</span>
                     </div>
                 </div>
             </div>
@@ -345,32 +285,17 @@
         </div>
     </section>
 
-
-
     <!-- STATS -->
     <section class="stats-section animate-on-scroll">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>20+</h3>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-item">
-                    <h3>30+</h3>
-                    <p>Small Projects</p>
-                </div>
-                <div class="stat-item">
-                    <h3>1+</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-item">
-                    <h3>6+</h3>
-                    <p>Seminars Attended</p>
-                </div>
+                <div class="stat-item"><h3>20+</h3><p>Projects Completed</p></div>
+                <div class="stat-item"><h3>30+</h3><p>Small Projects</p></div>
+                <div class="stat-item"><h3>1+</h3><p>Years Experience</p></div>
+                <div class="stat-item"><h3>6+</h3><p>Seminars Attended</p></div>
             </div>
         </div>
     </section>
-
 
     <!-- CONTACT -->
     <section id="contact" class="animate-on-scroll">
@@ -382,8 +307,7 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Let's <span>Work</span><br>Together</h3>
-                    <p class="contact-sub">Have a project in mind or just want to say hello? I'd love to hear from you.
-                    </p>
+                    <p class="contact-sub">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
                     <div class="contact-detail">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -414,24 +338,20 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Full Name</label>
-                                    <input type="text" class="form-control" name="name" id="name"
-                                        placeholder="Your name" autocomplete="off">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Your name" autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="your@email.com" autocomplete="off">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="your@email.com" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" name="phone" id="phone"
-                                    placeholder="+92 xxx xxxxxxx" autocomplete="off">
+                                <input type="tel" class="form-control" name="phone" id="phone" placeholder="+92 xxx xxxxxxx" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="feedback">Message</label>
-                                <textarea class="form-control" name="feedback" id="feedback"
-                                    placeholder="Tell me about your project..."></textarea>
+                                <textarea class="form-control" name="feedback" id="feedback" placeholder="Tell me about your project..."></textarea>
                             </div>
                             <div class="form-btns">
                                 <button type="submit" name="send" id="formsend"><span>Send Message</span></button>
@@ -451,7 +371,7 @@
             <p class="ending-copy">&copy; 2026 Abdul Hadi &mdash; Frontend Developer &bull; Karachi, Pakistan</p>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
