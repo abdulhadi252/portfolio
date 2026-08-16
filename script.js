@@ -199,6 +199,68 @@ document.addEventListener('DOMContentLoaded',function(){
         btn.addEventListener('mouseenter',function(){btn.style.transition='transform .12s ease,color .4s,background .4s';});
     });
 
+    /* ── Contact form: validation + success message ── */
+    var contactForm=document.getElementById('contactForm');
+    if(contactForm){
+        var statusEl=document.getElementById('formStatus');
+        var fields={
+            name:{el:document.getElementById('name'),err:document.getElementById('nameError'),test:function(v){return v.trim().length>=2;},msg:'Please enter your full name (at least 2 characters).'},
+            email:{el:document.getElementById('email'),err:document.getElementById('emailError'),test:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());},msg:'Please enter a valid email address.'},
+            phone:{el:document.getElementById('phone'),err:document.getElementById('phoneError'),test:function(v){return /^[+0-9][0-9\s\-()]{6,20}$/.test(v.trim());},msg:'Please enter your phone number (digits, spaces, +, -).'},
+            feedback:{el:document.getElementById('feedback'),err:document.getElementById('feedbackError'),test:function(v){return v.trim().length>=10;},msg:'Please write a message (at least 10 characters).'}
+        };
+
+        function setError(name,show){
+            var f=fields[name];
+            f.el.classList.toggle('is-invalid',show);
+            f.err.textContent=show?f.msg:'';
+        }
+
+        function validate(){
+            var ok=true;
+            Object.keys(fields).forEach(function(name){
+                var valid=fields[name].test(fields[name].el.value);
+                setError(name,!valid);
+                if(!valid)ok=false;
+            });
+            return ok;
+        }
+
+        /* Live validation on input/blur — clear error as user fixes it */
+        Object.keys(fields).forEach(function(name){
+            var f=fields[name];
+            f.el.addEventListener('input',function(){
+                if(f.err.textContent!=='')setError(name,f.test(this.value)?false:true);
+            });
+        });
+
+        contactForm.addEventListener('submit',function(e){
+            e.preventDefault();
+            if(!validate()){
+                statusEl.className='form-status form-error';
+                statusEl.innerHTML='<i class="fas fa-exclamation-circle"></i><span>Please fix the highlighted fields and try again.</span>';
+                statusEl.hidden=false;
+                var firstBad=contactForm.querySelector('.form-control.is-invalid');
+                if(firstBad)firstBad.focus();
+                return;
+            }
+            /* Valid: show English success message and reset */
+            contactForm.reset();
+            Object.keys(fields).forEach(function(name){setError(name,false);});
+            statusEl.className='form-status form-success';
+            statusEl.innerHTML='<i class="fas fa-check-circle"></i><span>Your message has been received successfully! Thank you for reaching out. I will get back to you as soon as possible.</span>';
+            statusEl.hidden=false;
+            statusEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+            setTimeout(function(){statusEl.hidden=true;},8000);
+        });
+
+        /* Clear button also hides any status/errors */
+        document.getElementById('formreset').addEventListener('click',function(){
+            Object.keys(fields).forEach(function(name){setError(name,false);});
+            statusEl.hidden=true;
+        });
+    }
+
     /* ── Form label color on focus ── */
     document.querySelectorAll('.form-control').forEach(function(inp){
         inp.addEventListener('focus',function(){
