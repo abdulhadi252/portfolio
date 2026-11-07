@@ -1003,6 +1003,7 @@ section { padding: 90px 0; }
     background: linear-gradient(0deg, rgba(8, 8, 8, .92) 0%, rgba(8, 8, 8, .4) 50%, transparent 100%);
     transition: opacity .4s;
     z-index: 2;
+    flex-wrap: wrap;
 }
 
 .project-card:hover .project-overlay { opacity: 1; }
@@ -1026,6 +1027,7 @@ section { padding: 90px 0; }
 .project-card:hover .project-overlay a { transform: translateY(0); opacity: 1; }
 .project-card:hover .project-overlay a:nth-child(1) { transition-delay: .06s; }
 .project-card:hover .project-overlay a:nth-child(2) { transition-delay: .13s; }
+.project-card:hover .project-overlay a:nth-child(3) { transition-delay: .20s; }
 
 .project-overlay .btn-live {
     background: var(--primary);
@@ -1047,6 +1049,18 @@ section { padding: 90px 0; }
 .project-overlay .btn-github:hover {
     border-color: rgba(255, 255, 255, .55);
     background: rgba(255, 255, 255, .05);
+}
+
+.project-overlay .btn-docs {
+    background: rgba(201, 169, 127, .10);
+    color: var(--accent2);
+    border: 1px solid rgba(201, 169, 127, .45);
+}
+
+.project-overlay .btn-docs:hover {
+    background: rgba(201, 169, 127, .22);
+    border-color: var(--accent2);
+    color: var(--text);
 }
 
 .project-number {
